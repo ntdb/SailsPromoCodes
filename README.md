@@ -23,7 +23,6 @@ From the project root: `mongod --dbpath mongo/mongo_data`
 #### Install all dependencies
 
     npm install
-    bower install
 
 #### Start the app
 
