@@ -19,6 +19,12 @@
 
 module.exports.policies = {
 
+  'code': {
+    '*': true, //'authenticated', // authenticated refers to a file in /api/policies
+    'find': true,
+    'index': true
+  }
+
   /***************************************************************************
   *                                                                          *
   * Default policy for all controllers and actions (`true` allows public     *
