@@ -28,7 +28,7 @@ module.exports = {
         Code.publishCreate(code, !req.options.mirror && req);
 
         // Send data about new object
-        res.end(JSON.stringify(code));
+        res.end(JSON.stringify(code, null, 2));
       }
     });
   },
