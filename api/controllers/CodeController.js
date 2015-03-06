@@ -9,10 +9,10 @@ var cc = require('coupon-code');
 
 module.exports = {
 
-  // Deny access to the blueprinted model creation endpoints
-  create: function (req, res) {
-    res.end("Please use the generate endpoint for creating promo codes.");
-  },
+  // // Deny access to the blueprinted model creation endpoints
+  // create: function (req, res) {
+  //   res.end("Please use the generate endpoint for creating promo codes.");
+  // },
 
   // Generate a promo code and assign it to the given description
   generate: function (req, res) {
@@ -24,6 +24,10 @@ module.exports = {
       if (err) {
         res.send(err);
       } else {
+        // Publish the creation event
+        Code.publishCreate(code, !req.options.mirror && req);
+
+        // Send data about new object
         res.end(JSON.stringify(code));
       }
     });
